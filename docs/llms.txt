@@ -10,6 +10,7 @@ Key facts:
 - Export: plain text (speakers, timestamps, summary), Markdown, SRT subtitles, M4A audio.
 - Privacy: App Store privacy label 'Data Not Collected'. Optional iCloud sync uses the user's private CloudKit database; audio is not synced.
 - Pricing (USD): free download showing the first 2 minutes of each note; Pro $3.99/month, $19.99/year with 3-day free trial, $39.99 lifetime. Universal purchase.
+- Support: murmur@netofficials.com (https://murmur.netofficials.com/support/).
 - Speaker labels are added manually; Murmur does not detect speakers automatically. Murmur does not join online calls and does not translate.
 
 ## Main pages

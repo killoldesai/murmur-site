@@ -86,7 +86,7 @@ def section_head(eyebrow, h2, lead="", center=True, rec=False):
 
 
 def answer_box(q, a):
-    return f'<div class="answer-box" data-reveal><strong>{esc(q)}</strong><p>{esc(a)}</p></div>'
+    return f'<div class="answer-box" data-reveal><strong>{esc(q)}</strong><p class="ab">{esc(a)}</p></div>'
 
 
 def faq_block(faqs, title="Frequently asked questions", eyebrow="FAQ"):
@@ -197,7 +197,10 @@ def viz(kind):
 # ------------------------------------------------------------------ schema
 def org():
     return {"@type": "Organization", "@id": f"{D}/#org", "name": "Murmur", "url": f"{D}/",
-            "logo": {"@type": "ImageObject", "url": f"{D}/assets/img/icon-512.png", "width": 512, "height": 512}}
+            "logo": {"@type": "ImageObject", "url": f"{D}/assets/img/icon-512.png", "width": 512, "height": 512},
+            "email": SITE["email"],
+            "contactPoint": [{"@type": "ContactPoint", "contactType": "customer support", "email": SITE["email"],
+                              "url": f"{D}/support/", "availableLanguage": ["English"]}]}
 
 
 def website():
@@ -230,7 +233,7 @@ def schema_graph(page):
     crumbs = [{"@type": "ListItem", "position": 1, "name": "Home", "item": f"{D}/"}]
     for i, (name, path) in enumerate(page.get("crumbs", [])):
         crumbs.append({"@type": "ListItem", "position": i + 2, "name": name, "item": D + path})
-    webpage = {"@type": "WebPage", "@id": url + "#webpage", "url": url, "name": page["title"], "description": page["desc"],
+    webpage = {"@type": "ContactPage" if page["path"] == "support/" else "WebPage", "@id": url + "#webpage", "url": url, "name": page["title"], "description": page["desc"],
                "isPartOf": {"@id": f"{D}/#website"}, "inLanguage": "en-US", "dateModified": SITE["updated"],
                "primaryImageOfPage": {"@type": "ImageObject", "url": f"{D}/assets/og/{page['og']}.png"}}
     if page.get("crumbs"):
@@ -270,7 +273,8 @@ def footer():
         return f'<div><h2>{title}</h2><ul>{lis}</ul></div>'
     return ('<footer class="site-foot"><div class="wrap"><div class="foot-grid">'
             '<div><a class="brand" href="/"><img src="/assets/img/favicon.svg" width="32" height="32" alt="">Murmur</a>'
-            '<p class="small" style="margin-top:14px;max-width:300px">Private speech to text with Whisper on your own iPhone, iPad, Mac and Apple Watch. No account, no uploads.</p></div>'
+            '<p class="small" style="margin-top:14px;max-width:300px">Private speech to text with Whisper on your own iPhone, iPad, Mac and Apple Watch. No account, no uploads.</p>'
+            f'<p class="small">Support: <a href="mailto:{SITE["email"]}">{SITE["email"]}</a></p></div>'
             + col("Product", [("All features", "/features/"), ("Pricing", "/pricing/"), ("FAQ", "/faq/"), ("Support", "/support/")])
             + col("Features", [(f["name"], f"/features/{f['slug']}/") for f in FEATURES[:7]])
             + col("Platforms", [(p["name"], f"/{p['slug']}/") for p in PLATFORMS])
@@ -550,7 +554,7 @@ def guides_hub_body():
 
 
 PRICING_FAQ = [
-    ("What is free in Murmur?", "Everything works on the free version, and every note shows its first 2 minutes. Recording and transcription are not capped; the full transcript is saved, so upgrading later unlocks your older notes."),
+    ("What is free in Murmur?", "Everything works on the free version, and every note shows its first 2 minutes. Recording and transcription are not capped; the full transcript is saved, so upgrading later unlocks your older notes. Search, iCloud sync and the Apple Watch app are included for everyone."),
     ("How does the free trial work?", f"The yearly plan starts with a {PRICES['trial_days']}-day free trial. You are not charged if you cancel at least 24 hours before the trial ends."),
     ("Does one purchase work on iPhone, iPad and Mac?", "Yes. Murmur is a universal purchase tied to your Apple ID."),
     ("How do I restore my purchase on a new device?", "Open Settings in Murmur and tap Restore purchases. Murmur also checks your purchases when it starts."),
@@ -587,9 +591,10 @@ def faq_body():
 
 
 def support_body():
-    cards = (f'<a class="card" href="{SITE["support_url"]}" rel="noopener" data-reveal>{icon("message")}<h3>Report a problem or idea</h3><p>Open an issue on GitHub. Please do not include private recordings or transcripts.</p><span class="more">Open GitHub issues</span></a>'
-             f'<a class="card" href="/faq/" data-reveal style="--i:1">{icon("book", "c2")}<h3>Read the FAQ</h3><p>Answers about privacy, offline use, devices and pricing.</p><span class="more">Go to FAQ</span></a>'
-             f'<a class="card" href="/pricing/" data-reveal style="--i:2">{icon("sync", "c4")}<h3>Purchases</h3><p>Restore purchases from Settings in Murmur. Refunds go through Apple at reportaproblem.apple.com.</p><span class="more">See pricing</span></a>')
+    cards = (f'<a class="card" href="mailto:{SITE["email"]}" data-reveal>{icon("message")}<h3>Email support</h3><p>Write to <strong>{SITE["email"]}</strong>. We reply in English. Please do not attach private recordings or transcripts.</p><span class="more">Send an email</span></a>'
+             f'<a class="card" href="{SITE["support_url"]}" rel="noopener" data-reveal style="--i:1">{icon("file", "c3")}<h3>Report a problem or idea</h3><p>Open an issue on GitHub. Please do not include private recordings or transcripts.</p><span class="more">Open GitHub issues</span></a>'
+             f'<a class="card" href="/faq/" data-reveal style="--i:2">{icon("book", "c2")}<h3>Read the FAQ</h3><p>Answers about privacy, offline use, devices and pricing.</p><span class="more">Go to FAQ</span></a>'
+             f'<a class="card" href="/pricing/" data-reveal style="--i:3">{icon("sync", "c4")}<h3>Purchases</h3><p>Restore purchases from Settings in Murmur. Refunds go through Apple at reportaproblem.apple.com.</p><span class="more">See pricing</span></a>')
     tips = [("The transcript is empty or stuck", "Check that the speech model finished downloading in Settings. Transcription runs one note at a time; queued notes wait their turn."),
             ("Names are misspelled", "Add them to the custom dictionary, then fix existing notes with Find and replace."),
             ("The Summary tab is missing", "Summaries need a device with Apple Intelligence turned on. Murmur hides the tab on other devices."),
@@ -597,7 +602,7 @@ def support_body():
             ("Apple Watch recordings are not arriving", "Open Murmur on your iPhone and keep the watch near it. Recordings wait on the watch and send when the two are connected.")]
     tip_html = "".join(f'<div class="card" data-reveal style="--i:{i % 3}"><h3>{esc(t)}</h3><p>{esc(d)}</p></div>' for i, (t, d) in enumerate(tips))
     return (hero_sub("Support", "How can we <span class=\"hl\">help?</span>", "Murmur has no account and no server, so we cannot see your notes. Here is how to fix common issues and reach us.", buttons=False)
-            + f'<section class="section tight"><div class="wrap"><div class="grid g3">{cards}</div></div></section>'
+            + f'<section class="section tight"><div class="wrap"><div class="grid g2">{cards}</div></div></section>'
             + f'<section class="section alt"><div class="wrap">{section_head("Troubleshooting", "Common fixes")}<div class="grid g3">{tip_html}</div></div></section>')
 
 
@@ -610,6 +615,103 @@ def legal_body(name):
 def not_found_body():
     return (hero_sub("404", "This page <span class=\"hl\">went quiet</span>", "We could not find that page. Try one of these instead.", buttons=False)
             + f'<section class="section tight"><div class="wrap center"><div class="btn-row" style="justify-content:center"><a class="btn" href="/">Home</a><a class="btn ghost" href="/features/">Features</a><a class="btn ghost" href="/faq/">FAQ</a></div>{wave(80)}</div></section>')
+
+
+# ------------------------------------------------------------------ contextual links
+# Phrase -> page. In body copy, the first mention of a phrase links to its page, once per target
+# per page, never to the page itself. Longer phrases come first so they win over shorter ones.
+LINK_PHRASES = [
+    ("custom dictionary", "/features/custom-dictionary/"),
+    ("dictionary", "/features/custom-dictionary/"),
+    ("find and replace", "/features/search/"),
+    ("search every transcript", "/features/search/"),
+    ("search", "/features/search/"),
+    ("label speakers", "/features/speaker-labels/"),
+    ("speaker names", "/features/speaker-labels/"),
+    ("talk time", "/features/speaker-labels/"),
+    ("tap any line", "/features/transcript-editor/"),
+    ("tap a line", "/features/transcript-editor/"),
+    ("editor", "/features/transcript-editor/"),
+    ("Apple Intelligence", "/features/ai-summaries/"),
+    ("action items", "/features/ai-summaries/"),
+    ("summaries", "/features/ai-summaries/"),
+    ("iCloud sync", "/features/icloud-sync/"),
+    ("private iCloud", "/features/icloud-sync/"),
+    ("airplane mode", "/features/offline-transcription/"),
+    ("offline", "/features/offline-transcription/"),
+    ("Whisper Large v3 Turbo", "/guides/what-is-whisper/"),
+    ("Whisper", "/guides/what-is-whisper/"),
+    ("on the device", "/features/on-device-transcription/"),
+    ("on your device", "/features/on-device-transcription/"),
+    ("on-device", "/features/on-device-transcription/"),
+    ("no account", "/features/private-by-design/"),
+    ("never uploads", "/features/private-by-design/"),
+    ("bookmarks", "/features/voice-recorder/"),
+    ("bookmark", "/features/voice-recorder/"),
+    ("Voice Memos", "/guides/transcribe-voice-memos-iphone/"),
+    ("import", "/features/import-audio-video/"),
+    ("SRT", "/use-cases/video-subtitles/"),
+    ("subtitles", "/use-cases/video-subtitles/"),
+    ("Markdown", "/features/export/"),
+    ("export", "/features/export/"),
+    ("meetings", "/use-cases/meeting-transcription/"),
+    ("lectures", "/use-cases/lecture-transcription/"),
+    ("interviews", "/use-cases/interview-transcription/"),
+    ("voice notes", "/use-cases/voice-memo-transcription/"),
+    ("Apple Watch", "/apple-watch/"),
+    ("iPad", "/ipad/"),
+    ("Mac", "/mac/"),
+    ("iPhone", "/iphone/"),
+    ("Murmur Pro", "/pricing/"),
+    ("free trial", "/pricing/"),
+    ("Restore purchases", "/support/"),
+]
+LINK_RES = [(re.compile(r"(?<![\w-])" + re.escape(ph) + r"(?![\w-])", re.I), url) for ph, url in LINK_PHRASES]
+NO_AUTOLINK = {"privacy/", "terms/", "404.html"}
+MAX_LINKS_PER_PAGE = 14
+MAX_LINKS_PER_PARAGRAPH = 2
+
+# Plain-text paragraphs (no class, no tags inside) and checklist items. Answer boxes, leads,
+# captions and the hero phone's transcript lines all carry a class or follow a tag, so they are left alone.
+_SEGMENT = re.compile(r'(?<=<p>)([^<]+)(?=</p>)|(?<=<li><span>)([^<]+)(?=</span>)|(?<=</strong> )([^<]+)(?=</span></li>)')
+
+
+def autolink(body, path):
+    self_url = "/" + path
+    used = set()
+    count = 0
+
+    def link_text(m):
+        nonlocal count
+        text = m.group(0)
+        start = m.start()
+        # tline lines in the hero phone follow </small>; leave them untouched
+        if body[max(0, start - 11):start].endswith("</small><p>"):
+            return text
+        # text inside a clickable card is already a link; a nested <a> is invalid
+        if body.rfind("<a ", 0, start) > body.rfind("</a>", 0, start):
+            return text
+        made = 0
+        for rx, url in LINK_RES:
+            if count >= MAX_LINKS_PER_PAGE or made >= MAX_LINKS_PER_PARAGRAPH:
+                break
+            if url == self_url or url in used:
+                continue
+            parts = re.split(r"(<a [^>]*>.*?</a>)", text)
+            for i, part in enumerate(parts):
+                if part.startswith("<a "):
+                    continue
+                hit = rx.search(part)
+                if hit:
+                    parts[i] = part[:hit.start()] + f'<a href="{url}">{hit.group(0)}</a>' + part[hit.end():]
+                    used.add(url)
+                    count += 1
+                    made += 1
+                    break
+            text = "".join(parts)
+        return text
+
+    return _SEGMENT.sub(link_text, body)
 
 
 # ------------------------------------------------------------------ page list
@@ -674,6 +776,7 @@ def llms_txt(P):
              "- Export: plain text (speakers, timestamps, summary), Markdown, SRT subtitles, M4A audio.",
              "- Privacy: App Store privacy label 'Data Not Collected'. Optional iCloud sync uses the user's private CloudKit database; audio is not synced.",
              f"- Pricing (USD): free download showing the first 2 minutes of each note; Pro {PRICES['monthly']}/month, {PRICES['yearly']}/year with {PRICES['trial_days']}-day free trial, {PRICES['lifetime']} lifetime. Universal purchase.",
+             f"- Support: {SITE['email']} ({D}/support/).",
              "- Speaker labels are added manually; Murmur does not detect speakers automatically. Murmur does not join online calls and does not translate.",
              ""]
     groups = [("Main pages", lambda p: p["path"] in ("", "pricing/", "faq/", "features/", "platforms/", "support/")),
@@ -734,7 +837,8 @@ def main():
     P = pages()
     for p in P:
         target = p["path"] + ("index.html" if p["path"].endswith("/") or p["path"] == "" else "")
-        write(target, layout(p, p["body"]))
+        body = p["body"] if p["path"] in NO_AUTOLINK else autolink(p["body"], p["path"])
+        write(target, layout(p, body))
     urls = [p for p in P if not p.get("noindex")]
 
     def prio(p):

@@ -11,6 +11,7 @@ SITE = {
     # Set this to the App Store link once the app is live; every download button switches over.
     "app_store_url": "",
     "support_url": "https://github.com/killoldesai/murmur/issues",
+    "email": "murmur@netofficials.com",
     "updated": "2026-10-29",
     "updated_human": "October 29, 2026",
 }
@@ -174,9 +175,9 @@ FEATURES = [
         "viz": "summary",
         "shot": ("iphone-summary", "Murmur summary tab with key points and action items", "phone"),
         "blocks": [
-            ("Three templates", "Meeting (decisions and next steps), Lecture (key ideas and terms) or Bullet points (a quick skim)."),
+            ("Three templates", "Meeting (decisions and next steps from meetings), Lecture (key ideas and terms from lectures) or Bullet points (a quick skim)."),
             ("Action items you can tick", "Tasks pulled from the conversation become a checklist saved with the note."),
-            ("Long recordings handled", "Murmur splits long transcripts into parts, summarizes each and then combines them."),
+            ("Long recordings handled", "Murmur splits long transcripts into parts, summarizes each and then combines them, so hour-long interviews work too."),
             ("Copy or export", "Copy the summary in one tap, or include it in a text or Markdown export."),
             ("Talk time on iPad and Mac", "See how much each labelled speaker talked, beside the summary."),
             ("Only where supported", "Summaries need a device with Apple Intelligence. On other devices the Summary tab is hidden, and transcripts work as normal."),
@@ -239,15 +240,15 @@ FEATURES = [
         "blocks": [
             ("Tap to play", "Start playback from any line. The playing line is highlighted and the list follows along."),
             ("Skip and speed", "Jump back or forward 15 seconds and listen at 1×, 1.5× or 2×."),
-            ("Split and merge", "Break a long line in two or join short fragments."),
+            ("Split and merge", "Break a long line in two or join short fragments, then label speakers line by line."),
             ("Undo", "Changes can be undone, with quick edits grouped so one undo does what you expect."),
-            ("Find and replace", "Fix a name everywhere in a transcript at once."),
+            ("Find and replace", "Fix a name everywhere in a transcript at once, then add it to your custom dictionary so it is right next time."),
             ("Arrow keys on Mac", "Step through lines with Up and Down, and press Space to play."),
         ],
         "steps": [
             ("Open a note", "The transcript and player are ready."),
             ("Tap a line to listen", "Check what was said."),
-            ("Edit and save", "Fix the text; changes save to the note."),
+            ("Edit and save", "Fix the text; changes save to the note and carry into every export."),
         ],
         "faqs": [
             ("Can I edit a transcript after it is made?", "Yes. Edit text, speakers and line breaks at any time. Murmur Pro is needed to edit notes longer than two minutes."),
@@ -301,10 +302,10 @@ FEATURES = [
         "viz": "dictionary",
         "shot": ("iphone-dictionary", "Murmur custom dictionary with names and terms", "phone"),
         "blocks": [
-            ("Names and terms", "Add people, places, brands, drug names, legal terms or code words."),
+            ("Names and terms", "Add people, places, brands, drug names, legal terms or code words from your meetings and lectures."),
             ("No duplicates", "Murmur spots a word you already added."),
             ("Add while fixing", "Correct a word with Find and replace and add it to the dictionary in the same step."),
-            ("Import and export a list on Mac", "Paste or save the whole list in one go."),
+            ("Import and export a list on Mac", "In the Mac app, paste or save the whole list in one go."),
         ],
         "steps": [
             ("Open Dictionary in Settings", "Type a word and add it."),
@@ -475,11 +476,11 @@ PLATFORMS = [
         "shots": [("mac-main", "Library and inspector"), ("mac-queue", "Batch queue"), ("mac-export", "Export"), ("mac-drop", "Drag and drop"), ("mac-settings", "Settings")],
         "kind": "wide",
         "points": [
-            ("Menu bar recorder", "A timer in the menu bar and a floating recording window."),
+            ("Menu bar recorder", "A timer in the menu bar and a floating recording window. Like every Murmur app, it works offline."),
             ("Global shortcut", "Start recording from any app with ⌃⌥R, or set your own."),
-            ("Batch queue", "See each file's progress and speed in times real time, and pause the queue."),
+            ("Batch queue", "Import a whole folder of recordings, see each file's progress and speed in times real time, and pause the queue."),
             ("Inspector", "Playback, summary, action items, talk time and file info beside the transcript."),
-            ("Markdown export", "Send transcripts to Obsidian or any notes app."),
+            ("Markdown export", "Send transcripts as Markdown to Obsidian or any notes app."),
             ("Microphone picker", "Record from a USB or audio-interface microphone, with fallback to the default."),
         ],
         "faqs": [
@@ -498,11 +499,11 @@ PLATFORMS = [
         "shots": [("watch-home", "Home"), ("watch-recording", "Recording"), ("watch-saved", "Saved and sending"), ("watch-recent", "Recent"), ("watch-playback", "Playback"), ("watch-complications", "Complications")],
         "kind": "watch",
         "points": [
-            ("One tap to record", "A big record button on the watch face app."),
+            ("One tap to record", "A big record button, made for quick voice notes."),
             ("Sends when it can", "Recordings queue on the watch and transfer when your iPhone is in range, with no duplicates."),
             ("Complications", "Start recording from your watch face."),
             ("Action button", "Start a recording with the Action button on supported models."),
-            ("Recent recordings", "See what was sent and play it back on the watch."),
+            ("Recent recordings", "See what was sent and play it back on the watch. Full transcripts, search and export are on your iPhone."),
             ("From Watch folder", "On iPhone, watch recordings collect in their own smart folder."),
         ],
         "faqs": [
@@ -576,7 +577,7 @@ USE_CASES = [
         "a": "Import the video into Murmur from Photos, Files or by dragging it onto the Mac app. Murmur extracts the audio and transcribes it with Whisper on your device. Check the lines, then choose Share, Subtitles to export an SRT file you can upload to YouTube or add in your video editor.",
         "pains": ["Subtitle services charge per minute.", "Uploading unreleased footage is a risk.", "Typing captions by hand takes hours."],
         "features": ["import-audio-video", "transcript-editor", "export", "custom-dictionary"],
-        "steps": [("Import the video", "From Photos, Files or drag and drop on Mac."), ("Review the lines", "Tap to play and fix any word."), ("Export SRT", "Share, Subtitles."), ("Upload", "Add the file to YouTube or your editor's timeline.")],
+        "steps": [("Import the video", "From Photos, Files or drag and drop on Mac."), ("Review the lines", "Tap a line to play it and fix any word in the editor."), ("Export SRT", "Share, Subtitles."), ("Upload", "Add the file to YouTube or your editor's timeline.")],
         "faqs": [("Can Murmur burn subtitles into the video?", "No. Murmur exports an SRT file; your video editor or YouTube displays it or burns it in."), ("Does it work for other languages?", "Yes, for the 13 languages Murmur supports, or set it to auto-detect.")],
     },
 ]
@@ -779,5 +780,6 @@ FAQ = [
     ("Can Murmur identify different speakers?", "You can label speakers yourself in the editor. Each speaker gets a colour, appears in exports, and adds up to talk-time bars on iPad and Mac. Murmur does not detect speakers automatically."),
     ("What file formats can I export?", "Plain text (with optional speakers, timestamps and summary), Markdown, SRT subtitles and M4A audio. You can also copy the text to the clipboard."),
     ("Does one purchase cover all my devices?", "Yes. Murmur is a universal purchase. Pro bought with your Apple ID works on your iPhone, iPad and Mac."),
+    ("How do I contact Murmur support?", "Email murmur@netofficials.com, or open an issue on GitHub. Please do not send private recordings or transcripts; describe the problem and your device instead."),
     ("How do I cancel a subscription?", "Subscriptions are managed by Apple. Open Settings on your iPhone, tap your name, then Subscriptions, and choose Murmur Pro. Cancel at least 24 hours before the period ends to avoid renewal."),
 ]
