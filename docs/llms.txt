@@ -1,0 +1,69 @@
+# Murmur
+
+> Murmur is a speech-to-text app for iPhone, iPad, Mac and Apple Watch that transcribes audio with OpenAI's Whisper model running on the user's own device. No account, no uploads, no analytics; works offline after a one-time model download.
+
+Key facts:
+- Engine: Whisper Large v3 Turbo (compressed, about 632 MB, recommended) or Small (about 500 MB), run on device through WhisperKit.
+- Languages: English, Spanish, French, German, Italian, Portuguese, Dutch, Russian, Japanese, Korean, Chinese, Hindi, Arabic, plus auto-detect. App interface in English.
+- Devices: iPhone, iPad, Mac with Apple silicon (macOS 15+), Apple Watch (records and sends audio to iPhone).
+- Summaries: Meeting, Lecture and Bullet point templates with action items, made on device with Apple Intelligence on supported devices.
+- Export: plain text (speakers, timestamps, summary), Markdown, SRT subtitles, M4A audio.
+- Privacy: App Store privacy label 'Data Not Collected'. Optional iCloud sync uses the user's private CloudKit database; audio is not synced.
+- Pricing (USD): free download showing the first 2 minutes of each note; Pro $3.99/month, $19.99/year with 3-day free trial, $39.99 lifetime. Universal purchase.
+- Speaker labels are added manually; Murmur does not detect speakers automatically. Murmur does not join online calls and does not translate.
+
+## Main pages
+
+- [Murmur: Private Speech to Text, Fully Offline](https://murmur.netofficials.com/): Transcribe meetings, lectures and voice notes on iPhone, iPad, Mac and Apple Watch with Whisper on your device. No account, no uploads, works offline.
+- [Features: on-device transcription, summaries, search and export](https://murmur.netofficials.com/features/): Everything Murmur does: on-device Whisper transcription, recording with bookmarks, summaries, speaker labels, search, dictionary, export and iCloud sync.
+- [Murmur for iPhone, iPad, Mac and Apple Watch](https://murmur.netofficials.com/platforms/): Murmur is one universal app for iPhone, iPad, Mac and Apple Watch with on-device Whisper transcription and optional iCloud sync.
+- [Pricing: free to try, Pro from $3.99 a month](https://murmur.netofficials.com/pricing/): Murmur is free to download. Pro is $3.99/month, $19.99/year with a 3-day free trial, or $39.99 lifetime. One purchase for iPhone, iPad and Mac.
+- [Murmur FAQ: privacy, offline use, accuracy and pricing](https://murmur.netofficials.com/faq/): Answers about Murmur: does it upload audio, does it work offline, which languages and devices it supports, accuracy, speaker labels and pricing.
+- [Support and troubleshooting](https://murmur.netofficials.com/support/): Get help with Murmur: fix common transcription, sync and Apple Watch issues, restore purchases, and report a problem.
+
+## Features
+
+- [On-device Whisper transcription for iPhone and Mac](https://murmur.netofficials.com/features/on-device-transcription/): Murmur runs OpenAI's Whisper speech model on your own iPhone, iPad or Mac. Accurate transcripts with no uploads, no account and no server.
+- [Offline transcription app that works in airplane mode](https://murmur.netofficials.com/features/offline-transcription/): Transcribe audio with no internet. Murmur downloads its Whisper model once, then records, transcribes and summarizes offline on iPhone, iPad and Mac.
+- [Voice recorder with bookmarks and transcription](https://murmur.netofficials.com/features/voice-recorder/): Record meetings, lectures and voice notes with one tap. Drop bookmarks while you record and get an on-device transcript when you stop. No account needed.
+- [Transcribe audio and video files on iPhone and Mac](https://murmur.netofficials.com/features/import-audio-video/): Import MP3, M4A, WAV and video files from Files, Photos or other apps and get private on-device transcripts. Batch queue, no upload, no account.
+- [Private AI meeting summaries made on your device](https://murmur.netofficials.com/features/ai-summaries/): Turn transcripts into meeting notes, lecture summaries and action items with Apple Intelligence, on the device. No cloud AI, no uploads.
+- [Transcripts with speaker labels and talk time](https://murmur.netofficials.com/features/speaker-labels/): Label speakers in your transcripts so you know who said what. Colour-coded names, talk-time bars on iPad and Mac, and labels in every export.
+- [Transcript editor with tap-to-play audio](https://murmur.netofficials.com/features/transcript-editor/): Tap any line of a transcript to play the audio from that moment. Edit text, split and merge lines, set speakers and undo changes, all on your device.
+- [Search every transcript, with find and replace](https://murmur.netofficials.com/features/search/): Find any word across all your recordings. Murmur searches transcripts and summaries, shows each hit with its timestamp, and replaces words across a transcript.
+- [Custom vocabulary for accurate transcription](https://murmur.netofficials.com/features/custom-dictionary/): Add names, product terms and jargon to Murmur's custom dictionary. They are passed to Whisper as vocabulary so transcripts spell them correctly.
+- [Export transcripts as TXT, Markdown, SRT or audio](https://murmur.netofficials.com/features/export/): Export Murmur transcripts as plain text with speakers and timestamps, Markdown, SRT subtitles, or M4A audio. Share to any app or copy to the clipboard.
+- [Sync transcripts across iPhone, iPad and Mac with iCloud](https://murmur.netofficials.com/features/icloud-sync/): Optional iCloud sync keeps Murmur notes, transcripts, folders and dictionary in step across your Apple devices using your own private iCloud. Off by default.
+- [Private transcription app: no account, no tracking](https://murmur.netofficials.com/features/private-by-design/): Murmur is a private transcription app with no accounts, no analytics, no ads and no servers. Recordings and transcripts stay on your device.
+
+## Platforms
+
+- [Murmur for iPhone: private speech to text app](https://murmur.netofficials.com/iphone/): Record and transcribe on iPhone with Whisper running on the device. Summaries, search, export and Apple Watch recordings. No account, works offline.
+- [Murmur for iPad: transcription with summary side panel](https://murmur.netofficials.com/ipad/): Murmur on iPad: a three-column library, transcript beside summary and talk time, drag-and-drop import and a large recording view. On-device Whisper.
+- [Murmur for Mac: offline Whisper transcription app](https://murmur.netofficials.com/mac/): Transcribe audio on your Mac with Whisper on Apple silicon. Menu bar recorder, global shortcut, batch queue, drag and drop, Markdown export. No uploads.
+- [Murmur for Apple Watch: record voice notes from your wrist](https://murmur.netofficials.com/apple-watch/): Record voice notes and meetings on Apple Watch and get a private transcript on your iPhone. Complications, Action button support, works away from your phone.
+
+## Use cases
+
+- [Private meeting transcription with notes and action items](https://murmur.netofficials.com/use-cases/meeting-transcription/): Record in-person meetings and get a transcript, summary and action items on your device. No bot joins the call, nothing is uploaded.
+- [Lecture transcription app for students](https://murmur.netofficials.com/use-cases/lecture-transcription/): Record lectures and get searchable transcripts and study summaries on your iPhone or Mac. Works offline in any lecture hall.
+- [Interview transcription app for journalists and researchers](https://murmur.netofficials.com/use-cases/interview-transcription/): Transcribe interviews on your device with Whisper. Keep sources confidential, label speakers, search quotes with timestamps and export text.
+- [Transcribe voice memos and voice notes on iPhone](https://murmur.netofficials.com/use-cases/voice-memo-transcription/): Turn voice memos and spoken notes into searchable text on your iPhone or Apple Watch. On-device Whisper, no account, nothing uploaded.
+- [Make SRT subtitles from video on iPhone and Mac](https://murmur.netofficials.com/use-cases/video-subtitles/): Create SRT subtitle files from your videos on device. Import a video, let Whisper transcribe it, fix any lines and export SRT for YouTube or your editor.
+
+## Guides
+
+- [How to transcribe Voice Memos on iPhone (private, offline)](https://murmur.netofficials.com/guides/transcribe-voice-memos-iphone/): Step-by-step: turn iPhone Voice Memos into text with on-device Whisper. No upload, works offline, with tips for better accuracy.
+- [How to transcribe audio offline on Mac with Whisper](https://murmur.netofficials.com/guides/transcribe-audio-offline-mac/): Transcribe audio and video files on your Mac without the internet using Whisper on Apple silicon. Drag-and-drop batch queue, Markdown and SRT export.
+- [How to create SRT subtitles from a video for free on device](https://murmur.netofficials.com/guides/create-srt-subtitles-from-video/): Make an SRT caption file from any video on iPhone or Mac with Whisper on the device. Import, review, export and upload to YouTube or your editor.
+- [What is Whisper? OpenAI's speech recognition model explained](https://murmur.netofficials.com/guides/what-is-whisper/): Whisper is OpenAI's open-source speech recognition model. Learn how it works, the model sizes including Large v3 Turbo, and how it runs on iPhone and Mac.
+- [On-device vs cloud transcription: privacy, cost and accuracy](https://murmur.netofficials.com/guides/on-device-vs-cloud-transcription/): Compare on-device and cloud speech-to-text: where your audio goes, offline use, cost, speed and accuracy. Learn which fits meetings, interviews and lectures.
+
+## Legal
+
+- [Privacy Policy](https://murmur.netofficials.com/privacy/): Murmur's privacy policy: no data collected, recordings and transcripts stay on your device, optional iCloud sync to your private iCloud.
+- [Terms of Use](https://murmur.netofficials.com/terms/): Terms of Use for the Murmur app, including Murmur Pro subscriptions and the lifetime purchase.
+
+## Optional
+
+- [Pricing (Markdown)](https://murmur.netofficials.com/pricing.md): Plans, prices and limits in plain text.
